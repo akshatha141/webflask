@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1 >Enquiry Form Data</h1>
+<table class="table " >     
+    <tr>
+        <th>Name </th>
+        <th>Course </th>
+        <th>Email </th>
+        <th>Mobile</th>
+        <th>Branch </th>
+
+        <th>Date Added</th>
+        <th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.uid }}</td>
+        <td>{{ task.email }}</td>
+        <td>{{ task.mobile }}</td>
+        <td>{{ task.branch }}</td>
+        
+        <td>{{ task.date_created.date() }}</td>
+        
+        <td>
+           <a  class="btn btn-danger" href="/delete/{{task.id}}">Delete</a>
+        </td>   
+                    
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
